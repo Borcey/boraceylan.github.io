@@ -235,6 +235,50 @@
     .nav{position:relative; top:auto}
     .form-row{grid-template-columns:1fr;}
   }
+
+  .contact-form fieldset{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:14px 16px;
+  background: rgba(255,255,255,.03);
+  margin:0;
+}
+
+.contact-form legend{
+  padding:0 8px;
+  font-size:14px;
+  font-weight:600;
+  color:var(--text);
+}
+
+.choice-group{
+  display:grid;
+  gap:10px;
+}
+
+.choice-item{
+  display:flex !important;
+  align-items:center;
+  gap:10px;
+  margin-bottom:0 !important;
+  font-weight:400 !important;
+  color:var(--muted) !important;
+  cursor:pointer;
+}
+
+.choice-item input[type="radio"],
+.choice-item input[type="checkbox"]{
+  width:auto;
+  margin:0;
+  accent-color:#8b5cf6;
+}
+
+.contact-form input[type="file"]{
+  padding:10px;
+  background: rgba(255,255,255,.03);
+}
+
+  
 </style>
 </head>
 <body>
@@ -538,41 +582,91 @@
     <div class="card col6">
       <h3 style="margin:0 0 14px;">Send a message</h3>
 
-      <form class="contact-form">
-        <div class="form-row">
-          <div>
-            <label for="fullname">Full Name</label>
-            <input type="text" id="fullname" name="fullname" placeholder="Your full name">
-          </div>
+<form class="contact-form" action="https://formspree.io/f/XXXXXXX" method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="_subject" value="New message from portfolio website">
 
-          <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Your email address">
-          </div>
-        </div>
+  <div class="form-row">
+    <div>
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" placeholder="Your full name" required>
+    </div>
 
-        <div>
-          <label for="subject">Subject</label>
-          <select id="subject" name="subject">
-            <option value="">Select a subject</option>
-            <option value="internship">Internship Opportunity</option>
-            <option value="research">Research Collaboration</option>
-            <option value="project">Project Discussion</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your email address" required>
+    </div>
+  </div>
 
-        <div>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Write your message here"></textarea>
-        </div>
+  <div class="form-row">
+    <div>
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+    </div>
 
-        <div>
-          <button type="submit" class="btn primary">
-            <span class="icon">📨</span> Send Message
-          </button>
-        </div>
-      </form>
+    <div>
+      <label for="subject">Subject</label>
+      <select id="subject" name="subject" required>
+        <option value="">Select a subject</option>
+        <option value="internship">Internship Opportunity</option>
+        <option value="research">Research Collaboration</option>
+        <option value="project">Project Discussion</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+  </div>
+
+  <fieldset>
+    <legend>Preferred Contact Method</legend>
+    <div class="choice-group">
+      <label class="choice-item">
+        <input type="radio" name="contact_preference" value="email" checked>
+        Contact me by email
+      </label>
+
+      <label class="choice-item">
+        <input type="radio" name="contact_preference" value="phone">
+        Contact me by phone
+      </label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Interests / Skills</legend>
+    <div class="choice-group">
+      <label class="choice-item">
+        <input type="checkbox" name="interests" value="HTML">
+        HTML
+      </label>
+
+      <label class="choice-item">
+        <input type="checkbox" name="interests" value="CSS">
+        CSS
+      </label>
+
+      <label class="choice-item">
+        <input type="checkbox" name="interests" value="Algorithm">
+        Algorithm
+      </label>
+    </div>
+  </fieldset>
+
+  <div>
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+  </div>
+
+  <div>
+    <label for="cv">Upload CV or Photo</label>
+    <input type="file" id="cv" name="attachment" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
+  </div>
+
+  <div>
+    <button type="submit" class="btn primary">
+      <span class="icon">📨</span> Send Message
+    </button>
+  </div>
+</form>
+      
     </div>
   </div>
 
