@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öğrenci Not Hesaplama</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+        <h2>Öğrenci Not Hesaplama</h2>
+        
+        <input type="text" id="adSoyadInput" placeholder="Ad Soyad (Örn: Bora Ceylan)">
+        <input type="number" id="vizeInput" placeholder="Vize (Örn: 60)">
+        <input type="number" id="finalInput" placeholder="Final (Örn: 60)">
+        
+        <button class="btn-gray" onclick="notHesapla()">Hesapla</button>
+
+        <div class="result-box">
+            <h3 id="sonucIsim">İsim -</h3>
+            <p id="sonucOrtalama">Ortalama: -</p>
+            <p id="sonucHarf">Harf Notu: -</p>
+            <p id="sonucDurum">Durum: -</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
